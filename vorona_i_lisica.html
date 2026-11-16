@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ворона и Лисица</title>
+<style>
+:root{--bg:#eef1f5;--paper:#fff;--ink:#1b2433;--muted:#647084;--line:#d5dce6;--accent:#2f5bd3;--soft:#e3eafc;--ok:#1f8a5b;--oksoft:#dff3e9;--warn:#b4532a;--warnsoft:#fbe9df}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161d;--paper:#1b212b;--ink:#e7ecf3;--muted:#9aa6b8;--line:#2c3543;--accent:#8ba5ff;--soft:#25304c;--ok:#67d3a0;--oksoft:#173327;--warn:#f09a74;--warnsoft:#3a2219}}
+:root[data-theme="dark"]{--bg:#12161d;--paper:#1b212b;--ink:#e7ecf3;--muted:#9aa6b8;--line:#2c3543;--accent:#8ba5ff;--soft:#25304c;--ok:#67d3a0;--oksoft:#173327;--warn:#f09a74;--warnsoft:#3a2219}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:720px;margin:auto;padding:20px 16px 48px}h1{font-size:1.55rem;margin:0 0 5px}.sub,.tips{color:var(--muted);font-size:.9rem}
+.tabs{display:flex;gap:4px;background:var(--paper);border:1px solid var(--line);padding:4px;border-radius:12px;margin:18px 0}
+.tabs button{flex:1;border:0;background:transparent;color:var(--muted);padding:10px 4px;border-radius:9px;font-weight:650;font-size:.92rem;cursor:pointer}.tabs button.on{background:var(--accent);color:#fff}
+.progress{margin:0 0 12px}.track{height:7px;background:var(--line);border-radius:10px;overflow:hidden}.fill{height:100%;background:var(--ok)}.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.85rem;margin-bottom:6px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:22px 20px}.card.big{min-height:240px;display:flex;flex-direction:column;gap:12px;cursor:pointer}
+.tag{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.prev{color:var(--muted);font-size:1.05rem;line-height:1.45;font-style:italic}
+.ans{font-size:1.3rem;font-weight:700;line-height:1.4;color:var(--accent)}.hint{margin-top:auto;color:var(--muted);font-size:.88rem}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.btn{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:13px;border-radius:11px;font-weight:650;font-size:1rem;cursor:pointer}
+.again{background:var(--warnsoft);color:var(--warn);border:0}.know{background:var(--oksoft);color:var(--ok);border:0}
+.poem{font-size:1.08rem;line-height:1.75}.poem .l{display:block}.poem .gap{height:.8em}
+.w{display:inline-block;min-width:2.2em;border-bottom:2px dashed var(--accent);background:var(--soft);color:transparent;border-radius:5px;padding:0 3px;cursor:pointer;line-height:1.35}
+.w.open{color:var(--ink);background:var(--oksoft);border-bottom-color:var(--ok)}
+.fl{cursor:pointer;border-radius:6px;padding:1px 3px;margin:0 -3px}.fl:hover{background:var(--soft)}.fl.open{color:var(--accent)}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}.seg button{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:8px 12px;border-radius:9px;font-weight:600;cursor:pointer}.seg button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.reset{border:0;background:none;color:var(--accent);padding:0;cursor:pointer;font-size:.85rem}
+.moral{color:var(--muted)}
+@media(max-width:440px){.ans{font-size:1.15rem}.poem{font-size:1rem}.tabs button{font-size:.82rem}}
+</style></head><body><div class="wrap">
+<h1>И. А. Крылов. «Ворона и Лисица»</h1><p class="sub">Басня · 26 строк · учим наизусть</p>
+<div class="tabs"><button data-m="gaps">Пропуски</button><button data-m="text">Текст</button></div>
+<main id="view"></main>
+</div><script>
+const T=`Уж сколько раз твердили миру,
+Что лесть гнусна, вредна; но только всё не впрок,
+И в сердце льстец всегда отыщет уголок.
+
+Вороне где-то бог послал кусочек сыру;
+На ель Ворона взгромоздясь,
+Позавтракать было совсем уж собралась,
+Да позадумалась, а сыр во рту держала.
+На ту беду Лиса близёхонько бежала;
+Вдруг сырный дух Лису остановил:
+Лисица видит сыр, Лисицу сыр пленил.
+Плутовка к дереву на цыпочках подходит;
+Вертит хвостом, с Вороны глаз не сводит
+И говорит так сладко, чуть дыша:
+«Голубушка, как хороша!
+Ну что за шейка, что за глазки!
+Рассказывать, так, право, сказки!
+Какие пёрышки! какой носок!
+И, верно, ангельский быть должен голосок!
+Спой, светик, не стыдись! Что ежели, сестрица,
+При красоте такой и петь ты мастерица, —
+Ведь ты б у нас была царь-птица!»
+Вещуньина с похвал вскружилась голова,
+От радости в зобу дыханье спёрло, —
+И на приветливы Лисицыны слова
+Ворона каркнула во всё воронье горло:
+Сыр выпал — с ним была плутовка такова.`;
+const RAW=T.split("\n"), L=RAW.filter(s=>s.trim());
+const $=s=>document.querySelector(s), view=$("#view");
+const load=(k,d)=>{try{let v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}};
+const save=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+let mode=["gaps","text"].includes(load("vl-mode","gaps"))?load("vl-mode","gaps"):"gaps",known=new Set(load("vl-known",[])),queue=[],pos=0,flip=false,ordered=true,level=load("vl-level",50),seed=1;
+function mix(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function build(){queue=L.map((_,i)=>i).filter(i=>!known.has(i));if(!ordered)mix(queue);pos=0;flip=false}
+function tabs(){document.querySelectorAll("[data-m]").forEach(b=>b.classList.toggle("on",b.dataset.m===mode))}
+function prog(){let k=known.size;return `<div class="progress"><div class="meta"><span>Выучено строк: ${k} из ${L.length}</span><button class="reset" id="reset">Начать заново</button></div><div class="track"><div class="fill" style="width:${k/L.length*100}%"></div></div></div>`}
+// split line into tokens: words (letters, hyphens) and the rest
+const tok=s=>s.match(/[А-Яа-яЁё]+(?:-[А-Яа-яЁё]+)*[^\sА-Яа-яЁё]*|[^А-Яа-яЁё]+/g)||[];
+const isW=t=>/^[А-Яа-яЁё]/.test(t);
+function render(){tabs();({lines,gaps,first,text})[mode]();}
+function lines(){
+ if(!queue.length){view.innerHTML=prog()+`<div class="card big"><div class="ans">Все строки выучены ✓</div><div class="hint">Проверь себя в «Первых буквах» или начни заново.</div></div>`;bindReset();return}
+ let ix=queue[pos];
+ let before=ix===0?`<span class="tag">Начало басни</span>`:`<div class="prev">${ix>1?esc(L[ix-2])+"<br>":""}${esc(L[ix-1])}</div>`;
+ view.innerHTML=prog()+`<div class="actions"><button class="btn" id="mix">${ordered?"Перемешать":"По порядку"}</button><button class="btn" id="first1">С начала</button></div>
+ <div class="card big" id="card"><span class="tag">Строка ${ix+1} из ${L.length} · осталось ${queue.length}</span>${before}
+ ${flip?`<div class="ans">${esc(L[ix])}</div>`:`<div class="hint">Какая строка дальше? Вспомни и нажми на карточку.</div>`}</div>`+
+ (flip?`<div class="actions"><button class="btn again" id="again">Ещё раз</button><button class="btn know" id="know">Помню</button></div>`:`<div class="actions"><button class="btn" id="skip">Пропустить</button><button class="btn" id="show">Показать</button></div>`);
+ bindReset();
+ $("#mix").onclick=()=>{ordered=!ordered;build();lines()};$("#first1").onclick=()=>{ordered=true;build();lines()};
+ const f=()=>{if(!flip){flip=true;lines()}};$("#card").onclick=f;
+ if(flip){$("#know").onclick=()=>{known.add(ix);save("vl-known",[...known]);queue.splice(pos,1);if(pos>=queue.length)pos=0;flip=false;lines()};
+  $("#again").onclick=()=>{queue.push(queue.splice(pos,1)[0]);flip=false;lines()}}
+ else{$("#show").onclick=f;$("#skip").onclick=()=>{queue.push(queue.splice(pos,1)[0]);lines()}}
+}
+function bindReset(){let r=$("#reset");if(r)r.onclick=()=>{known.clear();save("vl-known",[]);build();render()}}
+function gaps(){
+ const lv=[25,50,75,100];
+ let rnd=seed;const R=()=>{rnd=(rnd*16807)%2147483647;return rnd/2147483647};
+ let html=RAW.map(s=>!s.trim()?`<span class="l gap"></span>`:`<span class="l">${tok(s).map(t=>{if(!isW(t))return esc(t);let m=t.match(/^(.*?)([^А-Яа-яЁё-]*)$/),w=m[1],p=m[2];return `<span style="white-space:nowrap">${R()*100<level?`<span class="w" style="min-width:${Math.max(2.2,w.length*.55)}em">${esc(w)}</span>`:esc(w)}${esc(p)}</span>`}).join("")}</span>`).join("");
+ view.innerHTML=`<p class="tips">Часть слов спрятана. Проговори строку вслух, потом нажми на пропуск, чтобы проверить себя.</p>
+ <div class="seg">${lv.map(v=>`<button data-l="${v}" class="${v==level?"on":""}">${v===100?"Все слова":"Скрыть "+v+"%"}</button>`).join("")}</div>
+ <div class="card"><div class="poem">${html}</div></div>
+ <div class="actions"><button class="btn" id="openAll">Открыть все</button><button class="btn know" id="reroll">Другие пропуски</button></div>`;
+ document.querySelectorAll(".w").forEach(w=>w.onclick=()=>w.classList.add("open"));
+ document.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>{level=+b.dataset.l;save("vl-level",level);gaps()});
+ $("#openAll").onclick=()=>document.querySelectorAll(".w").forEach(w=>w.classList.add("open"));
+ $("#reroll").onclick=()=>{seed=Math.floor(Math.random()*1e9)+1;gaps()};
+}
+function first(){
+ const abbr=s=>s.replace(/[А-Яа-яЁё]+/g,w=>w[0]);
+ let html=RAW.map((s,i)=>!s.trim()?`<span class="l gap"></span>`:`<span class="l fl" data-s="${esc(s)}" data-a="${esc(abbr(s))}">${esc(abbr(s))}</span>`).join("");
+ view.innerHTML=`<p class="tips">От каждого слова осталась только первая буква. Восстанови строку по памяти, затем нажми на неё, чтобы сверить.</p>
+ <div class="card"><div class="poem">${html}</div></div>
+ <div class="actions"><button class="btn" id="hideAll">Скрыть все</button><button class="btn know" id="showAll">Показать все</button></div>`;
+ const set=(el,o)=>{el.classList.toggle("open",o);el.textContent=o?el.dataset.s:el.dataset.a};
+ document.querySelectorAll(".fl").forEach(el=>el.onclick=()=>set(el,!el.classList.contains("open")));
+ $("#hideAll").onclick=()=>document.querySelectorAll(".fl").forEach(el=>set(el,false));
+ $("#showAll").onclick=()=>document.querySelectorAll(".fl").forEach(el=>set(el,true));
+}
+function text(){
+ view.innerHTML=`<div class="card"><div class="poem">${RAW.map((s,i)=>!s.trim()?`<span class="l gap"></span>`:`<span class="l${i<3?" moral":""}">${esc(s)}</span>`).join("")}</div></div>
+ <p class="tips">Совет: учи кусками по 3–4 строки — сначала прочитай в «Тексте», потом закрепляй в «Пропусках», постепенно увеличивая процент скрытых слов.</p>`;
+}
+document.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{mode=b.dataset.m;save("vl-mode",mode);render()});
+build();render();
+</script></body></html>
